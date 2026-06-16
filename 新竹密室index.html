@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新竹有風，我有密室 — 6/19 行程確認全攻略</title>
+    <style>
+        /* CSS 變數：打造一致的文青山系色調 */
+        :root {
+            --primary-color: #3b4d40;    /* 森林深綠 */
+            --secondary-color: #aa997c;  /* 燕麥暖駝 */
+            --accent-color: #c5be9f;     /* 柔和草綠 */
+            --bg-color: #fdfcfb;         /* 質感米白 */
+            --text-main: #2b2621;        /* 深褐黑（比純黑更柔和） */
+            --text-sub: #544e47;         /* 內文深灰 */
+            --card-bg: #ffffff;
+            --border-color: #e1dbd3;
+        }
+
+        /* 全域樣式優化，字體全面放大，確保手機好讀 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            color: var(--text-main);
+            line-height: 1.75;
+            background-color: var(--bg-color);
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* 頂部視覺 Banner */
+        .hero-banner {
+            background-color: var(--primary-color);
+            color: #f7f5f0;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--secondary-color);
+            position: relative;
+            background-image: linear-gradient(135deg, #3b4d40 0%, #2c3a30 100%);
+        }
+
+        .hero-banner h1 {
+            margin: 0;
+            font-size: 26pt;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-banner p {
+            margin: 10px 0 0 0;
+            font-size: 13.5pt;
+            color: #d4c9b4;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* 網頁主容器 */
+        .wrapper {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 30px 16px;
+        }
+
+        /* 文青風標題 */
+        .section-header {
+            font-size: 16.5pt;
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 14px;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ==========================================================================
+           人員名單視覺設計
+           ========================================================================== */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .member-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .member-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px auto;
+            font-size: 14pt;
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4);
+        }
+
+        .member-name {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .member-role {
+            font-size: 9.5pt;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           時間軸與卡片設計 (Timeline)
+           ========================================================================== */
+        .timeline {
+            position: relative;
+            margin-left: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #ede9e4;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* 時間軸上的文青圓點 */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 22px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 3px rgba(170, 153, 124, 0.2);
+        }
+
+        /* 集合點特殊圖示 */
+        .timeline-item.meetup::before {
+            content: '📍';
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            left: -32px;
+            top: 14px;
+            font-size: 16pt;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(43, 38, 33, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(43, 38, 33, 0.06);
+        }
+
+        .card-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .time-badge {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--secondary-color);
+            background: #faf7f2;
+            padding: 3px 12px;
+            border-radius: 30px;
+            border: 1px solid #f2ede4;
+        }
+
+        .event-title {
+            font-size: 14.5pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .card-body {
+            font-size: 11.5pt;
+            color: var(--text-sub);
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background-color: #f5f2eb;
+            color: #473f37;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10.5pt;
+            font-weight: 600;
+        }
+
+        .tag-location {
+            background-color: #eef2ef;
+            color: #2e4033;
+        }
+
+        .tag-alert {
+            background-color: #fcebe8;
+            color: #a73a24;
+        }
+
+        /* ==========================================================================
+           RWD 彈性雙欄佈局 (電腦並排、手機垂直疊加)
+           ========================================================================== */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 850px) {
+            .grid-layout {
+                grid-template-columns: 1.1fr 0.9fr; /* 交通略寬，停車略窄 */
+            }
+        }
+
+        /* 表格響應式包裹層（手機防爆） */
+        .table-scroller {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+            background: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11pt;
+            min-width: 540px; /* 確保表格在手機保持完美間距，不擠壓 */
+        }
+
+        table.custom-table th {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 14px;
+        }
+
+        table.custom-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        table.custom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.custom-table tr:nth-child(even) {
+            background-color: #faf9f6;
+        }
+
+        /* 強調狀態標籤 */
+        .row-focus {
+            background-color: #fbf6ee !important;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9.5pt;
+            font-weight: bold;
+            margin-left: 4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .bg-main { background-color: var(--secondary-color); }
+        .bg-sub { background-color: var(--accent-color); }
+
+        /* 貼心提示盒 */
+        .tip-box {
+            background-color: #f5efe6;
+            border-left: 5px solid var(--secondary-color);
+            padding: 18px;
+            font-size: 11.5pt;
+            color: #473f37;
+            border-radius: 0 10px 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+        }
+
+        .tip-box h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+            font-size: 12.5pt;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sub-title-traffic {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 15px 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部文青大Banner -->
+    <div class="hero-banner">
+        <h1>新竹有風，我有密室</h1>
+        <p>— 06.19 Friday | 密室逃脫 × 美食散策一日遊 —</p>
+    </div>
+
+    <div class="wrapper">
+        
+        <!-- 新增：解謎戰隊人員名單區塊 -->
+        <div class="section-header">👥 密室解謎神隊友名單 (7人團)</div>
+        <div class="member-grid">
+            <div class="member-card">
+                <div class="member-avatar">鱗</div>
+                <div class="member-name">魚鱗</div>
+                <div class="member-role">🧠 邏輯 carry</div>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">實</div>
+                <div class="member-name">真實</div>
+                <div class="member-role">🔍 搜索大師</div>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">貓</div>
+                <div class="member-name">貓子</div>
+                <div class="member-role">🧩 機關破壞者</div>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">孤</div>
+                <div class="member-name">獨孤</div>
+                <div class="member-role">📜 劇情通靈王</div>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">鶬</div>
+                <div class="member-name">鶬</div>
+                <div class="member-role">⚡ 速度擔當</div>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">瑤</div>
+                <div class="member-name">瑤</div>
+                <div class="member-role">🎒 道具包保管</div>
+            </div>
+            <div class="member-card">
+                <div class="member-avatar">野</div>
+                <div class="member-name">司野</div>
+                <div class="member-role">📢 開門氣氛組</div>
+            </div>
+        </div>
+
+        <!-- 一、行程線區塊 -->
+        <div class="section-header">🧭 行程時間線 Chronology</div>
+        
+        <div class="timeline">
+            
+            <!-- 集合地點 -->
+            <div class="timeline-item meetup">
+                <div class="card" style="border: 1.5px dashed var(--secondary-color); background: #faf8f5;">
+                    <div class="card-header">
+                        <span class="time-badge" style="background: var(--secondary-color); color: white;">10:35 - 10:45</span>
+                        <span class="event-title" style="color: var(--primary-color);">🚩 集合點：密室工作室報到！</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-group">
+                            <span class="tag tag-alert">🚨 切勿遲到</span>
+                            <span class="tag tag-location">📍 格林跳密室現場</span>
+                        </div>
+                        <div><strong>大家直接在工作室集合！</strong> 為了不壓縮到體驗時間，請提早抵達上洗手間、寄物與準備聽取行前講解。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 密室 1 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="time-badge">10:50 - 12:20</span>
+                        <span class="event-title">密室 1：盜月筆記 🔑</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-group">
+                            <span class="tag">💰 費用：600 /人</span>
+                            <span class="tag">👥 人數：7人全到</span>
+                            <span class="tag tag-location">📍 格林跳 (巨城周邊)</span>
+                        </div>
+                        <div>早晨大腦尚未被新竹的風吹亂，先用熱門大主題開啟序幕！預祝首發順利逃脫！</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 午餐 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="time-badge">12:40 - 14:20</span>
+                        <span class="event-title">午餐聚餚：鍋牛鍋物料理 🍲</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-group">
+                            <span class="tag">🥩 脂肪與熱量補給</span>
+                            <span class="tag tag-location">📍 新竹店 (步行即可達)</span>
+                        </div>
+                        <div>高質感個人鍋物，文青風精緻肉品與招牌濃郁湯底，剛好坐下來大聊剛才密室裡是誰在雷、又是誰在高光凱瑞。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 密室 2 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="time-badge">14:40 - 16:20</span>
+                        <span class="event-title">密室 2：山梔照相館 📸</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-group">
+                            <span class="tag">💰 費用：650 /人</span>
+                            <span class="tag">🎭 沉浸劇情大作</span>
+                        </div>
+                        <div>吃飽喝足容易睏？立刻應戰超強口碑的沉浸式劇情主題，精緻復古場景保證驚艷，直接把瞌睡蟲嚇跑！</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下午茶 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="time-badge">16:50 - 17:40</span>
+                        <span class="event-title">下午茶歇：種甜 or 一想一響咖啡 ☕</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-group">
+                            <span class="tag">🤯 腦力過載散熱</span>
+                        </div>
+                        <div><strong>種甜：</strong>老宅木質風，激推極致細緻的戚風蛋糕，甜點是另一個胃！<br>
+                        <strong>一想一響：</strong>寬敞廢墟風，點杯冰美式，給過熱的大腦充個電。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 密室 3 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="time-badge">17:50 - 19:20</span>
+                        <span class="event-title">密室 3：大師的殞落 ♟️</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tag-group">
+                            <span class="tag">💰 費用：550 /人</span>
+                            <span class="tag">🧩 硬核推理壓軸</span>
+                        </div>
+                        <div>今日智慧與團隊默契終極挑戰！結合硬核推理與精巧機關，考驗大家最後僅存的集中力，衝啊！</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 賦歸 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="time-badge">19:40 之後</span>
+                        <span class="event-title">日暮賦歸 / 續攤巨城 🏠</span>
+                    </div>
+                    <div class="card-body">
+                        <div>完美結束充實的三連刷。大家可以自由選擇在巨城直接找店續攤晚餐、買杯飲料，或是參考下方運輸時間依序回程。</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 二、交通與停車雙欄區塊 -->
+        <div class="grid-layout">
+            
+            <!-- 大眾運輸欄位 -->
+            <div>
+                <div class="section-header">🚊 北部組大眾運輸交通</div>
+                
+                <div class="sub-title-traffic">🌤️ 【去程：高鐵轉台鐵區間車】</div>
+                <div class="table-scroller">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>出發站</th>
+                                <th>高鐵車次</th>
+                                <th>發車時間</th>
+                                <th>抵達六家</th>
+                                <th>轉乘台鐵區間車</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-focus">
+                                <td>南港</td>
+                                <td>1509 <span class="status-badge bg-main">預設</span></td>
+                                <td>08:25</td>
+                                <td>09:11</td>
+                                <td>1715 次 (09:29→09:43) <span class="status-badge bg-main">穩妥</span></td>
+                            </tr>
+                            <tr class="row-focus">
+                                <td>台北</td>
+                                <td>1509 <span class="status-badge bg-main">預設</span></td>
+                                <td>08:36</td>
+                                <td>09:11</td>
+                                <td>1715 次 (09:29→09:43) <span class="status-badge bg-main">穩妥</span></td>
+                            </tr>
+                            <tr>
+                                <td>南港</td>
+                                <td>0615 <span class="status-badge bg-sub">備選</span></td>
+                                <td>08:35</td>
+                                <td>09:21</td>
+                                <td>1717 次 (10:02→10:16) <span class="status-badge bg-sub">極限</span></td>
+                            </tr>
+                            <tr>
+                                <td>台北</td>
+                                <td>0615 <span class="status-badge bg-sub">備選</span></td>
+                                <td>08:46</td>
+                                <td>09:21</td>
+                                <td>1717 次 (10:02→10:16) <span class="status-badge bg-sub">極限</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="sub-title-traffic">🌙 【回程：台鐵區間車轉高鐵】</div>
+                <div class="table-scroller">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>台鐵新竹發車</th>
+                                <th>高鐵車次</th>
+                                <th>新竹高鐵發</th>
+                                <th>抵達台北</th>
+                                <th>抵達南港</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1772 次 (20:00)</td>
+                                <td>0678 <span class="status-badge bg-sub">快腿</span></td>
+                                <td>20:25</td>
+                                <td>20:59</td>
+                                <td>21:10</td>
+                            </tr>
+                            <tr class="row-focus">
+                                <td>1772 次 (20:00) <span class="status-badge bg-sub">預設</span></td>
+                                <td>1682 <span class="status-badge bg-main">首選</span></td>
+                                <td>20:57</td>
+                                <td>21:33</td>
+                                <td>21:45</td>
+                            </tr>
+                            <tr>
+                                <td>1774 次 (20:33)</td>
+                                <td>0854 <span class="status-badge bg-sub">不急</span></td>
+                                <td>21:08</td>
+                                <td>21:39</td>
+                                <td>21:50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 自行開車與提示欄位 -->
+            <div>
+                <div class="section-header">🚗 自行開車推薦停車場</div>
+                <div style="font-size:10.5pt; color: var(--text-sub); margin-bottom: 12px;">
+                    ⚠️ <em>設計師註解：已過濾遠見停車場，以下車位好停、走去密室工作室最順路：</em>
+                </div>
+                
+                <div class="table-scroller">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">停車場名稱</th>
+                                <th style="width: 65%;">開車神隊友優勢</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-focus">
+                                <td><strong>東大陸橋下停車場<br>(中央站)</strong></td>
+                                <td><strong>🥇 毫無疑問首選！</strong> <br>車位多、價格實惠。過馬路直接走綠色廊道切過去，去格林跳密室工作室或聚餐點都非常近。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>三民路路邊停車格</strong></td>
+                                <td>公有收費，大樹成蔭。如果運氣好一轉進來就有位子可以直接停。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>俥亭停車<br>(府後地下停車場)</strong></td>
+                                <td>全地下不怕下雨。如果想趁空檔去護城河綠帶散步的人可以停這。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 貼心提醒方塊 -->
+                <div class="tip-box">
+                    <h4>💡 行前密室特別小叮嚀</h4>
+                    1. <strong>嚴禁遲到！</strong> 格林跳場次一環扣一環，遲到會扣減遊玩時間。請大家無論是大眾運輸還是開車，<strong>都以 10:35~10:45 抵達密室工作室為準</strong>！<br>
+                    2. 下午茶店「種甜」與「一想一響」當天看現場排隊狀況機動決定去哪家。<br>
+                    3. 預祝魚鱗、真實、貓子、獨孤、鶬、瑤、司野 7 人解謎戰隊當天順利通關，把三顆主題徽章通通打包帶回家！🏆
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
